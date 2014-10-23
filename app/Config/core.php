@@ -4,6 +4,8 @@
  *
  * Use it to configure core behavior of Cake.
  *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -43,7 +45,7 @@
  * - `handler` - callback - The callback to handle errors. You can set this to any callable type,
  *   including anonymous functions.
  *   Make sure you add App::uses('MyHandler', 'Error'); when using a custom handler class
- * - `level` - integer - The level of errors you are interested in capturing.
+ * - `level` - int - The level of errors you are interested in capturing.
  * - `trace` - boolean - Include stack traces for errors in log files.
  *
  * @see ErrorHandler for more information on error handling and configuration.
@@ -95,8 +97,8 @@
  * /app/webroot/.htaccess
  *
  * And uncomment the App.baseUrl below. But keep in mind
- * that plugin assets such as images, CSS and JavaScript files
- * will not work without URL rewriting!
+ * that plugin assets such as images, CSS and Javascript files
+ * will not work without url rewriting!
  * To work around this issue you should either symlink or copy
  * the plugin assets into you app's webroot directory. This is
  * recommended even when you are using mod_rewrite. Handling static
@@ -104,7 +106,7 @@
  * included primarily as a development convenience - and
  * thus not recommended for production applications.
  */
-	Configure::write('App.baseUrl', env('SCRIPT_NAME'));
+	//Configure::write('App.baseUrl', env('SCRIPT_NAME'));
 
 /**
  * To configure CakePHP to use a particular domain URL
@@ -149,7 +151,7 @@
  *	`manager_index()` and `/manager/controller/index`
  *
  */
-Configure::write('Routing.prefixes', array('admin'));
+	//Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -222,12 +224,12 @@ Configure::write('Routing.prefixes', array('admin'));
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', '987654321');
+	Configure::write('Security.salt', '17ec66511e3464b1c7316d82872690faf063abea');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '123456789123456');
+	Configure::write('Security.cipherSeed', '874195156934577117613395736278');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -252,7 +254,7 @@ Configure::write('Routing.prefixes', array('admin'));
  * Plug in your own custom JavaScript compressor by dropping a script in your webroot to handle the
  * output, and setting the config below to the name of the script.
  *
- * To use, prefix your JavaScript link URLs with '/cjs/' instead of '/js/' or use JsHelper::link().
+ * To use, prefix your JavaScript link URLs with '/cjs/' instead of '/js/' or use JavaScriptHelper::link().
  */
 	//Configure::write('Asset.filter.js', 'custom_javascript_output_filter.php');
 
@@ -270,14 +272,7 @@ Configure::write('Routing.prefixes', array('admin'));
 	//date_default_timezone_set('UTC');
 
 /**
- * `Config.timezone` is available in which you can set users' timezone string.
- * If a method of CakeTime class is called with $timezone parameter as null and `Config.timezone` is set,
- * then the value of `Config.timezone` will be used. This feature allows you to set users' timezone just
- * once instead of passing it each time in function calls.
- */
-	//Configure::write('Config.timezone', 'Europe/Paris');
-
-/**
+ *
  * Cache Engine Configuration
  * Default settings provided below
  *
@@ -290,8 +285,7 @@ Configure::write('Routing.prefixes', array('admin'));
  * 		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
  * 		'prefix' => 'cake_', //[optional]  prefix every cache file with this string
  * 		'lock' => false, //[optional]  use file locking
- * 		'serialize' => true, //[optional]
- * 		'mask' => 0664, //[optional]
+ * 		'serialize' => true, [optional]
  *	));
  *
  * APC (http://pecl.php.net/package/APC)
@@ -314,20 +308,18 @@ Configure::write('Routing.prefixes', array('admin'));
  *		'password' => 'password', //plaintext password (xcache.admin.pass)
  *	));
  *
- * Memcached (http://www.danga.com/memcached/)
- *
- * Uses the memcached extension. See http://php.net/memcached
+ * Memcache (http://www.danga.com/memcached/)
  *
  * 	 Cache::config('default', array(
- *		'engine' => 'Memcached', //[required]
+ *		'engine' => 'Memcache', //[required]
  *		'duration' => 3600, //[optional]
  *		'probability' => 100, //[optional]
  * 		'prefix' => Inflector::slug(APP_DIR) . '_', //[optional]  prefix every cache file with this string
  * 		'servers' => array(
  * 			'127.0.0.1:11211' // localhost, default port 11211
  * 		), //[optional]
- * 		'persistent' => 'my_connection', // [optional] The name of the persistent connection.
- * 		'compress' => false, // [optional] compress data in Memcached (slower, but uses less memory)
+ * 		'persistent' => true, // [optional] set this to false for non-persistent connections
+ * 		'compress' => false, // [optional] compress data in Memcache (slower, but uses less memory)
  *	));
  *
  *  Wincache (http://php.net/wincache)
