@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*importa todas as variáveis do sistemas (palheta de cores) */
+* {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
+body {
+  background: url("../img/background.jpg"); }
+
+.footer {
+  display: block;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  background: #333333;
+  color: white; }
+
+.content {
+  color: #555555; }

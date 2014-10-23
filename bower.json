@@ -1,0 +1,22 @@
+{
+  "name": "iGenesis",
+  "version": "0.0.0",
+  "authors": [
+    "carloseduardolbraz <carloseduardo@lanwise.com.br>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~0.19.3"
+  }
+}
