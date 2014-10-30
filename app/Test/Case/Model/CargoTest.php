@@ -6,15 +6,15 @@ App::uses('Cargo', 'Model');
  *
  */
 class CargoTest extends CakeTestCase {
-
-/**
- * Fixtures
- *
- * @var array
- */
 	public $fixtures = array(
 		'app.cargo'
 	);
+
+	private $dados = array(
+	'Cargo' => array(
+		'descricao' => 'Pastor'
+	));
+
 
 /**
  * setUp method
@@ -33,8 +33,12 @@ class CargoTest extends CakeTestCase {
  */
 	public function tearDown() {
 		unset($this->Cargo);
-
 		parent::tearDown();
+	}
+
+	public function testSalvaCargo(){		
+		$resultado = $this->Cargo->salvaCargo($this->dados);		
+		$this->assertTrue($resultado);
 	}
 
 }

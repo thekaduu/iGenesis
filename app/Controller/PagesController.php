@@ -46,6 +46,8 @@ class PagesController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function index() {
-	
+		$this->set('icone','home');
+		$this->set('titulo','Bem-vindo');
+		$this->set('sub_titulo','Seja bem-vindo ao iGenesis, seu sistema de gestão eclesiastica. Aqui você encontrará:');
 	}
 }

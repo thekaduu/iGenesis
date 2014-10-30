@@ -1,25 +1,19 @@
 <?php
 App::uses('PessoaFisica', 'Model');
 
-/**
- * PessoaFisica Test Case
- *
- */
 class PessoaFisicaTest extends CakeTestCase {
-
-/**
- * Fixtures
- *
- * @var array
- */
 	public $fixtures = array(
-		'app.pessoa_fisica',
-		'app.candidato',
-		'app.pessoa_fisicas',
-		'app.eleicoes',
-		'app.cargos'
+		'app.pessoa_fisica'
 	);
-
+	private $dados = array(
+		'PessoaFisica'=>array(
+			
+				'nome'=>'Carlos Eduardo Lima Braz',
+				'data_nascimento'=>'30/09/1992',
+				'sexo'=>'M'
+				
+			)
+		);
 /**
  * setUp method
  *
@@ -39,6 +33,16 @@ class PessoaFisicaTest extends CakeTestCase {
 		unset($this->PessoaFisica);
 
 		parent::tearDown();
+	}
+
+/**
+ * testSalvaPessoaFisica method
+ *
+ * @return void
+ */
+	public function testSalvaPessoaFisica() {		
+		$resultado = (bool) $this->PessoaFisica->salvaPessoaFisica($this->dados);
+		$this->assertTrue($resultado);			
 	}
 
 }

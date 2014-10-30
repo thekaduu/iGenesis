@@ -30,4 +30,35 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+
+
+	//Métodos @protected
+	/**
+	*	Formata uma string de data para o formato desejado
+	*	@author Carlos Eduardo
+	*	@param string $data
+	*	@param string $formato (sql,br)
+	*	@return string $data
+	*	@access protected
+	*/
+	protected function formataData($data,$formato = 'sql'){
+		if(empty($data)){
+			throw new LogicException("Parâmetro data é obrigatório", 1);			
+		}
+		switch ($formato) {
+			case 'sql':
+				$data = split('/', $data);				
+				$data = $data[2].'-'.$data[1].'-'.$data[0];
+				break;
+			case 'br':
+				$data = split('-', $data);				
+				$data = $data[2].'/'.$data[1].'/'.$data[0];
+				break;
+			default:
+				throw new LogicException("Parâmetro formato não é válido", 1);				
+				break;
+		}
+		return $data;
+	}
 }

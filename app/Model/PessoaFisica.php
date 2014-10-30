@@ -3,7 +3,6 @@ App::uses('AppModel', 'Model');
 /**
  * PessoaFisica Model
  *
- * @property Candidato $Candidato
  */
 class PessoaFisica extends AppModel {
 
@@ -14,28 +13,60 @@ class PessoaFisica extends AppModel {
  */
 	public $displayField = 'nome';
 
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 /**
- * hasMany associations
+ * Validation rules
  *
  * @var array
  */
-	public $hasMany = array(
-		'Candidato' => array(
-			'className' => 'Candidato',
-			'foreignKey' => 'pessoa_fisicas_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+	public $validate = array(
+		'nome' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Campo Obrigatório',
+			),
+			'isUnique'=>array(
+				'rule' => 'isUnique',
+				'message' => 'Nome já cadastrado no sistema'
+				)
+		),
+		'data_nascimento' => array(
+			'date' => array(
+				'rule' => array('date'),
+				'message' => 'Data Inválida!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
+
+
+	//Métodos
+
+	/**
+	*	Salva uma pessoa fisica (não salva várias) convertendo a data no formato br para sql
+	*	@author Carlos Eduardo Lima <carloseduardo@lanwise.com.br>
+	*	@param mixed $array_pessoa_fisica
+	*	@return mixed 
+	*	@throws LogicException se não passar o parâmetro $array_pessoa_fisica
+	*/
+	public function salvaPessoaFisica($array_pessoa_fisica){
+		if(!is_array($array_pessoa_fisica) || empty(@$array_pessoa_fisica['PessoaFisica'])){
+			throw new LogicException("Parâmetro passado deve ser um array", 1);			
+		}
+		$data_nascimento = $array_pessoa_fisica['PessoaFisica']['data_nascimento'];
+		$data_nascimento = $this->formataData($data_nascimento,'sql');
+
+		$array_pessoa_fisica['PessoaFisica']['data_nascimento'] = $data_nascimento;
+		
+		return $this->save($array_pessoa_fisica);
+		
+
+	}
+
+
+
+
 
 }

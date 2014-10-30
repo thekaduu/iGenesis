@@ -31,7 +31,7 @@ class PessoaFisicaFixture extends CakeTestFixture {
 			'id' => 1,
 			'nome' => 'Lorem ipsum dolor sit amet',
 			'sexo' => 'Lorem ipsum dolor sit ame',
-			'data_nascimento' => 1412385548
+			'data_nascimento' => 1414627630
 		),
 	);
 
