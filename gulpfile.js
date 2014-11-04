@@ -5,7 +5,8 @@ var bower_directory = 'bower_components';
 
 var js_dependent = [
 	bower_directory + '/jquery/dist/jquery.min.js',
-	bower_directory + '/semantic-ui/build/packaged/javascript/semantic.min.js'
+	bower_directory + '/semantic-ui/build/packaged/javascript/semantic.min.js',
+	bower_directory + '/angular/angular.min.js'
 ];
 
 

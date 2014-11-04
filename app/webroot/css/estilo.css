@@ -18,3 +18,11 @@ body {
 
 .content {
   color: #555555; }
+
+.hidden {
+  display: none; }
+
+.link {
+  cursor: pointer; }
+  .link:hover {
+    font-weight: bold; }

@@ -71,12 +71,6 @@
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div class="ui grid">
-			<div class="footer computer only column">
-				<p><strong>iGenesis - Sistema de Gestão Eclesiastica</strong></p>
-				<p>Todos os direitos reservados para <a href="#">Igreja Presbiteriana do Brasil</a></p>
-			</div>
-		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>

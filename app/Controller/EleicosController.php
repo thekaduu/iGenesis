@@ -10,9 +10,10 @@ App::uses('AppController', 'Controller');
 class EleicosController extends AppController {
 	public $components = array('Paginator', 'Session');
 
-	function add(){
-		$this->autoRender = false;
-		debug($this->data);
+	function Cadastrar(){
+		$this->set('icone','thumbs up');
+		$this->set('titulo','Cadastro de Eleiçoes');
+		$this->set('sub_titulo','Criar eleições para os mais diversos cargos cadastrados no sistema.');
 	}
 
 }

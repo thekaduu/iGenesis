@@ -30,21 +30,21 @@ class Eleico extends AppModel {
 		'descricao' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Campo Obrigatório',
+				'allowEmpty' => false,
+				'required' => false,				
 			),
+			'size'=>array(
+				'rule'=>array('between',0,100),
+				'message'=>'O Tamanho máximo para a este campo é 100 caracteres'
+				)
 		),
 		'ano' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Ápenas permitido inserir Digitos',
+				'allowEmpty' => false,
+				'required' => false,				
 			),
 		),
 	);

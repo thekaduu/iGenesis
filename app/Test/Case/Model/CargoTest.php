@@ -41,4 +41,9 @@ class CargoTest extends CakeTestCase {
 		$this->assertTrue($resultado);
 	}
 
+	public function testListaTodos(){
+		// TODO
+
+	}
+
 }
