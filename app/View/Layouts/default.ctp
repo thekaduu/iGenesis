@@ -35,7 +35,7 @@
 		      		<div class="menu">
 		        		<a class="item" href="<?= $this->webroot ?>Membros/Cadastrar"><i class="users icon"></i>Membros</a>
 		        		<a class="item" href="<?= $this->webroot ?>Cargos/Cadastrar"><i class="suitcase icon"></i>Cargos</a>
-		        		<a class="item"><i class="thumbs up icon"></i>Eleição</a>
+		        		<a class="item" href="<?= $this->webroot ?>Eleicos/Cadastrar"><i class="thumbs up icon"></i>Eleição</a>
 		      		</div>
 		    	</div>
 

@@ -7,8 +7,7 @@ App::uses('AppController', 'Controller');
  * @property PaginatorComponent $Paginator
  * @property SessionComponent $Session
  */
-class CargosController extends AppController {
-
+class CargosController extends AppController {	
 /**
  * Components
  *
@@ -21,6 +20,7 @@ class CargosController extends AppController {
 		$this->set('icone','briefcase');
 		$this->set('titulo','Cadastro de Cargos');
 		$this->set('sub_titulo','Cargos para a eleição');	
+		
 		$cargos = $this->Cargo->listaTodos();
 		$this->set('cargos',$cargos);
 
@@ -40,5 +40,15 @@ class CargosController extends AppController {
 			return json_encode($cargos);
 		}		
 		$this->set('cargos',$cargos);
+	}
+
+	public function ServiceListaCargos(){
+		$this->autoRender = false;		
+		$lista = $this->Cargo->listaDropBox();
+		$retorno = [];
+		foreach ($lista as $cargo) {
+			array_push($retorno, $cargo['Cargo']);
+		}				
+		return json_encode($retorno);
 	}
 }

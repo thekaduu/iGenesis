@@ -59,4 +59,11 @@ class Cargo extends AppModel {
 		return $this->find('all');
 	}
 
+	public function listaDropBox(){
+		$this->recursive = -1;
+		return $this->find('all');
+	}
+
+	
+
 }

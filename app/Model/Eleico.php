@@ -69,7 +69,21 @@ class Eleico extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'EleicoesCargo' => array(
+			'className' => 'EleicoesCargo',
+			'foreignKey' => 'eleicoes_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
+
 	);
 
 }
